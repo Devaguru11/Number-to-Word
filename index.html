@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Number to Words Converter</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <h2>Numbers to Words Converter</h2>
+            <label for="number">Enter a number between 0-999: </label>
+            <input type="text" name="number" id="number" maxlength="3">
+            <button onclick="convertToWords()">Convert</button>
+            <div id="output"></div>
+        </div>
+
+        <script>
+            function convertToWords(){
+                var numInput = document.getElementById("number").value;
+                var outputDiv = document.getElementById("output");
+
+                // Input Validation
+                if (!/^\d{1,3}$/.test(numInput)) {
+                    outputDiv.innerHTML = '<p class="error">Please enter a valid number (0-999).</p>';
+                    return;
+                }
+                var number = parseInt(numInput, 10);
+
+                if(number<0 || number>999) {
+                    outputDiv.innerHTML = '<p class="error">Number must be in the range of 0 to 999.</p>';
+                    return;
+                }
+
+                // Array of words for numbers 0 to 19
+      var units = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
+        "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
+               // Array of words for multiples of 10
+      var tens = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
+              // Array of words for hundreds
+      var hundreds = ["", "One Hundred", "Two Hundred", "Three Hundred", "Four Hundred", "Five Hundred", "Six Hundred", "Seven Hundred", "Eight Hundred", "Nine Hundred"];
+  
+      var words = ""; 
+
+      if(number === 0) {
+        words=units[number];
+      } else {
+        if (number>=100) {
+            words += hundreds[Math.floor(number/100)] + " ";
+            number%=100;
+        }
+        if (number>=20) {
+            words += tens[Math.floor(number/10)] + " ";
+            number%=10;
+        }
+        if (number>=0) {
+            words += units[number]; }
+            }
+            outputDiv.innerHTML = '<p>' + words + '</p>'
+        }
+        </script>
+    </body>
+</html>
