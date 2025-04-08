@@ -1,0 +1,66 @@
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: antiquewhite;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    background-color: azure;
+    padding: 100px;
+    border-radius: 10px;
+    animation: enter 0.5s ease-in-out forwards;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#number,
+button {
+    padding: 10px 20px;
+    border: 1px solid #090909;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#number {
+    width: 100%;
+}
+
+button {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #ded9d9;
+    color: rgb(8, 8, 8);
+    transition: background-coloe 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #abd8f1;
+}
+
+#output {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.error {
+    color: #ad1a1a;
+    font-weight: bold;
+    animation: shake 1s ease-in-out;
+}
